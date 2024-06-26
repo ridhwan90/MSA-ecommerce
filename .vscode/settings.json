@@ -1,0 +1,9 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "customerservice/target/generated-sources/protobuf/grpc-java",
+        "customerservice/target/generated-sources/protobuf/java"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "remote.autoForwardPortsFallback": 0
+}

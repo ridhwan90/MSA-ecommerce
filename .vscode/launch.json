@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UserManagementServiceApplication<UserManagementService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.MSA_ecommerce.UserManagementService.UserManagementServiceApplication",
+            "projectName": "UserManagementService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CustomerServiceApplication<CustomerService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.msa_ecommerce.CustomerService.CustomerServiceApplication",
+            "projectName": "CustomerService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
