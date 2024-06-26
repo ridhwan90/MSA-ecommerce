@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.msa_ecommerce.CustomerService.proto";
+option java_outer_classname = "CustomerServiceProto";
+
+
+message CustomerInformationRequest {
+    string customer_id = 1;
+}
+
+message CustomerInformation {
+    string customer_id = 1;
+    string name = 2;
+    string email = 3;
+    string phone_number = 4;
+    bool is_active = 5;
+    bool is_admin = 6;
+    string profile_picture = 7;
+    CustomerAddress address = 8;
+    repeated CustomerCard payment_card = 9;
+}
+
+message CustomerAddress {
+    string address_line_1 = 1;
+    string address_line_2 = 2;
+    string city = 3;
+    string state = 4;
+    string country = 5;
+    string postal_code = 6;
+}
+
+message CustomerCard {
+    string card_number = 1;
+    string card_holder_name = 2;
+    string expiry_date = 3;
+    CustomerAddress address = 5;
+}
+
+
+service CustomerService {
+    rpc GetCustomerInformation(CustomerInformationRequest) returns (CustomerInformation);
+}
