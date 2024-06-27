@@ -21,11 +21,15 @@ public class DataSeeder {
             if (customerRepository.count() == 0) {
                 Faker faker = new Faker();
                 for (int i = 0; i < 10; i++) {
+                    String fullName = faker.name().fullName();
+                    String firstName = fullName.split(" ")[0];
+                    String lastName = fullName.split(" ")[1];
+                    String email = firstName + "." + lastName + "@" + faker.internet().domainName();
                     Address address = Address.builder().addressLine1(faker.address().streetAddress()).addressLine2(faker.address().streetAddress()).city(faker.address().city()).state(faker.address().state()).country(faker.address().country()).postalCode(faker.address().zipCode()).build();
-                    PaymentCard paymentCard = PaymentCard.builder().cardNumber(faker.number().digits(16)).cardHolderName(faker.name().fullName()).expiryDate(faker.date().future(365, TimeUnit.DAYS).toString()).cvv(faker.number().digits(3)).address(address).build();
+                    PaymentCard paymentCard = PaymentCard.builder().cardNumber(faker.number().digits(16)).cardHolderName(fullName).expiryDate(faker.date().future(365, TimeUnit.DAYS).toString()).cvv(faker.number().digits(3)).address(address).build();
                     Customer customer = Customer.builder()
-                            .name(faker.name().fullName())
-                            .email(faker.internet().emailAddress())
+                            .name(fullName)
+                            .email(email)
                             .phoneNumber(faker.phoneNumber().phoneNumber())
                             .isActive(true)
                             .isAdmin(false)
