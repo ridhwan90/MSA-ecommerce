@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ApiGatewayServiceApplication",
+            "request": "launch",
+            "mainClass": "com.msa_ecommerce.ApiGatewayService.ApiGatewayServiceApplication",
+            "projectName": "ApiGatewayService"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-UserManagementServiceApplication<UserManagementService>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

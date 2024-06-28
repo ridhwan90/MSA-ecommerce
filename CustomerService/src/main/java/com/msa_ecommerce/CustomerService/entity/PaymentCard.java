@@ -36,7 +36,7 @@ public class PaymentCard {
     private Date updatedAt;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "payment_card_uuid")
+    @JoinColumn(name = "address_uuid")
     private Address address;
 
     @PreUpdate

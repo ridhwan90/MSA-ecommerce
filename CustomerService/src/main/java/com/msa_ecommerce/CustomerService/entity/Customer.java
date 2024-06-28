@@ -44,11 +44,11 @@ public class Customer {
     private Date updatedAt;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_uuid")
+    @JoinColumn(name = "address_uuid")
     private Address address;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_uuid")
+    @JoinColumn(name = "payment_uuid")
     private List<PaymentCard> paymentCard;
 
     @PreUpdate

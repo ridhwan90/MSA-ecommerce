@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.msa_ecommerce.CustomerService.proto";
-option java_outer_classname = "CustomerServiceProto";
+option java_package = "com.msa_ecommerce.ApiGatewayService.proto";
+option java_outer_classname = "ApiGatewayServiceProto";
 
 
 message CustomerInformationRequest {

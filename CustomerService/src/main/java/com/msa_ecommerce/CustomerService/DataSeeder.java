@@ -26,7 +26,8 @@ public class DataSeeder {
                     String lastName = fullName.split(" ")[1];
                     String email = firstName + "." + lastName + "@" + faker.internet().domainName();
                     Address address = Address.builder().addressLine1(faker.address().streetAddress()).addressLine2(faker.address().streetAddress()).city(faker.address().city()).state(faker.address().state()).country(faker.address().country()).postalCode(faker.address().zipCode()).build();
-                    PaymentCard paymentCard = PaymentCard.builder().cardNumber(faker.number().digits(16)).cardHolderName(fullName).expiryDate(faker.date().future(365, TimeUnit.DAYS).toString()).cvv(faker.number().digits(3)).address(address).build();
+                    String expiryDate = String.format("%02d/%02d", faker.number().numberBetween(1, 12), faker.number().numberBetween(24, 30));
+                    PaymentCard paymentCard = PaymentCard.builder().cardNumber(faker.number().digits(16)).cardHolderName(fullName).expiryDate(expiryDate).cvv(faker.number().digits(3)).address(address).build();
                     Customer customer = Customer.builder()
                             .name(fullName)
                             .email(email)
