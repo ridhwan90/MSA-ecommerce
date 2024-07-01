@@ -1,5 +1,14 @@
 {
     "configurations": [
+
+        {
+            "name": "ProductService",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/ProductService/cmd/main.go"
+        },
+        
         {
             "type": "java",
             "name": "ApiGatewayServiceApplication",

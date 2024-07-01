@@ -1,0 +1,76 @@
+syntax = "proto3";
+option go_package = "github.com/ridhwan90/MSA-ecommerce/ProductService/productServicePb";
+
+message GetProductByIdRequest {
+    string id = 1;
+}
+
+message GetProductByIdResponse {
+    Product product = 1;
+}
+
+message CreateProductRequest {
+    Product product = 1;
+}
+
+message CreateProductResponse {
+    string id = 1;
+}
+
+message DeleteProductRequest {
+    string id = 1;
+}
+
+message DeleteProductResponse {
+    bool is_success = 1;
+    string message = 2;
+}
+
+message GetProductsRequest {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message GetProductsResponse {
+    repeated Product products = 1;
+}
+
+message Product {
+    string id = 1;
+    string name = 2;
+    float price = 3;
+    string description = 4;
+    int32 quantity = 5;
+    string image_url = 6;
+    Category category = 7;
+    repeated SKU skus = 8;
+    Discount discounts = 9;
+}
+
+message Category {
+    string name = 1;
+    string description = 2;
+}
+
+message SKU {
+    string sku = 1;
+    int32 quantity = 2;
+    string image_url = 3;
+}
+
+message Discount {
+    string name = 1;
+    float discount = 2;
+    string description = 3;
+    string start_date = 4;
+    string end_date = 5;
+    bool is_active = 6;
+}
+
+service ProductService {
+
+    rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse);
+    rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+    rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
+    rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+}
